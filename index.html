@@ -8,62 +8,67 @@
   <meta name="keywords" content="Darbhanga website, website services Darbhanga, ecommerce Darbhanga, WordPress Darbhanga, website design Bihar, local business website" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://darbhangawebsite.github.io/darbhangawebsite/" />
+  
+  <!-- Open Graph -->
   <meta property="og:title" content="Darbhanga Website Services" />
   <meta property="og:description" content="Professional website and eCommerce development in Darbhanga with mobile-friendly design and hosting." />
   <meta property="og:image" content="https://darbhangawebsite.github.io/darbhangawebsite/preview.jpg" />
   <meta property="og:url" content="https://darbhangawebsite.github.io/darbhangawebsite/" />
   <meta property="og:type" content="website" />
-  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <!-- TailwindCSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-  <!-- Schema JSON-LD -->
-  <script type="application/ld+json">... (as shown above) ...</script>
-
-  <!-- Custom styles and animations -->
-  <style> ... your existing styles ... </style>
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Darbhanga Website Services</title>
-  <!-- Your other meta tags, favicon, TailwindCSS link, etc. -->
-
-  <!-- ✅ Paste schema code here -->
+  <!-- JSON-LD Schema -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Darbhanga Website Services",
-      "image": "https://darbhangawebsite.github.io/darbhangawebsite/preview.jpg",
-      "url": "https://darbhangawebsite.github.io/darbhangawebsite/",
-      "telephone": "+918918933833",
-      "email": "jaymitjharony@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Darbhanga",
-        "addressRegion": "Bihar",
-        "postalCode": "846004",
-        "addressCountry": "IN"
-      },
-      "description": "Affordable and mobile-optimized websites for local businesses in Darbhanga, including eCommerce and hosting services.",
-      "areaServed": "Darbhanga, Bihar, India",
-      "sameAs": [
-        "https://wa.me/919472065638",
-        "https://darbhangawebsite.github.io/darbhangawebsite/"
-      ]
-    }
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Darbhanga Website Services",
+    "image": "https://darbhangawebsite.github.io/darbhangawebsite/preview.jpg",
+    "url": "https://darbhangawebsite.github.io/darbhangawebsite/",
+    "telephone": "+918918933833",
+    "email": "jaymitjharony@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Darbhanga",
+      "addressRegion": "Bihar",
+      "postalCode": "846004",
+      "addressCountry": "IN"
+    },
+    "description": "Affordable and mobile-optimized websites for local businesses in Darbhanga, including eCommerce and hosting services.",
+    "areaServed": "Darbhanga, Bihar, India",
+    "sameAs": [
+      "https://wa.me/919472065638",
+      "https://darbhangawebsite.github.io/darbhangawebsite/"
+    ]
+  }
   </script>
+
+  <!-- Custom Styles -->
+  <style>
+    .animate-fade-in {
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+    }
+    .delay-150 { animation-delay: 0.15s; }
+    .delay-300 { animation-delay: 0.3s; }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    .animate-spin-slow {
+      animation: spin 4s linear infinite;
+    }
+  </style>
 </head>
 
 <body class="bg-white text-gray-800 font-sans">
 
-  <!-- Hero Section with Spiderweb Background -->
+  <!-- Hero Section -->
   <section class="relative text-white py-20 px-6 text-center overflow-hidden">
-    <!-- tsParticles background -->
     <div id="tsparticles" class="absolute inset-0 z-0"></div>
-
-    <!-- Hero Content -->
     <div class="relative z-10">
       <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">Darbhanga Website Services</h1>
       <p class="text-lg md:text-xl mb-6 max-w-xl mx-auto animate-fade-in delay-150">
@@ -79,7 +84,7 @@
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- Services Section -->
   <section class="py-16 px-6 max-w-6xl mx-auto relative z-10">
     <h2 class="text-3xl font-bold text-center mb-10">Our Services</h2>
     <div class="grid md:grid-cols-3 gap-6">
@@ -101,31 +106,31 @@
     </div>
   </section>
 
-  <!-- Contact -->
-<section id="contact" class="py-16 px-6 max-w-4xl mx-auto text-center relative z-10 text-white">
-  <h2 class="text-3xl font-bold mb-6">Let’s Talk</h2>
-  <p class="mb-4">Ready to grow your business online? We’ll help you from design to launch.</p>
-  <div class="space-y-3">
-    <div class="flex items-center justify-center gap-2">
-      📧 <span>jaymitjharony@gmail.com</span>
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 px-6 max-w-4xl mx-auto text-center relative z-10 text-white">
+    <h2 class="text-3xl font-bold mb-6">Let’s Talk</h2>
+    <p class="mb-4">Ready to grow your business online? We’ll help you from design to launch.</p>
+    <div class="space-y-3">
+      <div class="flex items-center justify-center gap-2">
+        📧 <span>jaymitjharony@gmail.com</span>
+      </div>
+      <div class="flex items-center justify-center gap-2">
+        📞 <span>+91 8918933833</span>
+      </div>
+      <div class="flex items-center justify-center gap-2">
+        <span class="text-green-400 text-xl">🟢</span>
+        <span><a href="https://wa.me/919472065638" class="text-blue-200 hover:underline">Chat on WhatsApp</a></span>
+      </div>
     </div>
-    <div class="flex items-center justify-center gap-2">
-      📞 <span>+91 8918933833</span>
-    </div>
-    <div class="flex items-center justify-center gap-2">
-      <span class="text-green-400 text-xl">🟢</span>
-      <span><a href="https://wa.me/919472065638" class="text-blue-200 hover:underline">Chat on WhatsApp</a></span>
-    </div>
-  </div>
-  <a href="mailto:jaymitjharony@gmail.com" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded">Contact Us</a>
-</section>
+    <a href="mailto:jaymitjharony@gmail.com" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded">Contact Us</a>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-blue-800 text-white py-6 text-center relative z-10">
     <p>&copy; 2025 Darbhanga Website Services. All rights reserved.</p>
   </footer>
 
-  <!-- tsParticles Script -->
+  <!-- tsParticles Background -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <script>
     tsParticles.load("tsparticles", {
