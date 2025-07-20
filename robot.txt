@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://darbhangawebsite.github.io/darbhangawebsite/sitemap.xml
