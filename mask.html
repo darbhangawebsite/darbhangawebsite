@@ -68,89 +68,64 @@
       color: #FFD700;
       text-shadow: 1px 1px 2px #000;
     }
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-    @keyframes slideInRight {
-      0% { transform: translateX(100%); opacity: 0; }
-      100% { transform: translateX(0); opacity: 1; }
-    }
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+    @keyframes slideInRight { 0% { transform: translateX(100%); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+    @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
     @media (max-width: 768px) {
-      .main-container {
-        flex-direction: column;
-      }
-      .left-pane, .right-pane {
-        flex: unset;
-        height: 50vh;
-        width: 100%;
-      }
+      .main-container { flex-direction: column; }
+      .left-pane, .right-pane { flex: unset; height: 50vh; width: 100%; }
       .right-pane { padding: 15px; }
     }
   </style>
 </head>
 <body>
-
   <div class="main-container">
     <!-- YouTube Live Video -->
     <div class="left-pane">
       <iframe id="live-player" height="100%" allowfullscreen></iframe>
     </div>
-
     <!-- Chat & Widgets -->
     <div class="right-pane">
       <div class="chat-box">
         <iframe id="live-chat" height="100%" allowfullscreen></iframe>
       </div>
-
       <div class="widget">
         <div class="widget-title">🎉 Latest Member</div>
         <iframe src="https://streamlabs.com/widgets/event-list/v1/C69A8D4695FDDF81A60C" height="60"></iframe>
       </div>
-
-      <div class="widget">
-        <div class="widget-title">🏆 Top SuperChat</div>
-        <iframe src="https://streamlabs.com/widgets/YOUR_TOP_DONATOR_URL" height="60"></iframe>
-      </div>
-
       <div class="widget">
         <div class="widget-title">👤 Latest Subscriber</div>
-        <iframe src="https://streamlabs.com/alert-box/v3/C69A8D4695FDDF81A60C" height="60"></iframe>
+        <iframe src="https://streamlabs.com/widgets/event-list/v1/C69A8D4695FDDF81A60C" height="60"></iframe>
       </div>
     </div>
   </div>
 
   <script>
-    const channelId = "UC9FFwFD6KqgZRHpOzIIhlbA"; // MaskmanUG
+     const channelId = "UC9FFwFD6KqgZRHpOzIIhlbA"; // MaskmanUG
     const apiKey = "AIzaSyDYHdNre5DR8ZpWsJO0HAbsqCKrufAqW54"; // Replace with your real key
 
     async function loadLiveStream() {
-      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&key=${apiKey}`;
       try {
-        const res = await fetch(url);
-        const data = await res.json();
-        if (data.items && data.items.length > 0) {
-          const videoId = data.items[0].id.videoId;
-          document.getElementById("live-player").src = 
-            `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-          document.getElementById("live-chat").src = 
-            `https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${location.hostname}`;
+        const res = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`);
+        const text = await res.text();
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(text, "text/xml");
+        const entries = xml.getElementsByTagName("entry");
+        if (entries.length > 0) {
+          const id = entries[0].getElementsByTagName("yt:videoId")[0].textContent;
+          document.getElementById("live-player").src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+          document.getElementById("live-chat").src = `https://www.youtube.com/live_chat?v=${id}&embed_domain=${location.hostname}`;
         } else {
-          document.getElementById("live-player").outerHTML = 
-            "<p style='color:white;text-align:center;'>🔴 Not Live Right Now</p>";
+          document.getElementById("live-player").outerHTML = "<p style='color:white;text-align:center;'>🔴 Not Live Right Now</p>";
           document.getElementById("live-chat").style.display = "none";
         }
-      } catch (err) {
-        console.error("Error fetching stream", err);
+      } catch (error) {
+        console.error("Failed to load live stream:", error);
       }
     }
 
     loadLiveStream();
   </script>
-
 </body>
 </html>
+   
